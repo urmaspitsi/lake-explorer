@@ -9,6 +9,19 @@ npm install
 npm run dev
 ```
 
+The local dev server runs on `http://localhost:8080`.
+
+## Local production preview
+
+To test the built site locally before pushing to GitHub Pages:
+
+```bash
+npm run build
+npm run preview
+```
+
+Vite will print a localhost preview URL in the terminal.
+
 ## Production build
 
 ```bash
