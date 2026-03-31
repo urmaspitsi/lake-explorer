@@ -98,19 +98,38 @@ const WorldMap = () => {
                   onClick={() => setSelectedLake(lake)}
                   style={{ cursor: "pointer" }}
                 >
-                  <circle
-                    r={4}
-                    fill={CONTINENT_COLORS[lake.continent]}
-                    stroke="white"
-                    strokeWidth={1.5}
-                    className="transition-all duration-200"
+                  <g
+                    className="transition-transform duration-200"
                     onMouseEnter={(e) => {
-                      (e.target as SVGCircleElement).setAttribute("r", "6");
+                      const markerGroup = e.currentTarget as SVGGElement;
+                      const circle = markerGroup.querySelector("circle");
+                      if (circle) circle.setAttribute("r", "6");
                     }}
                     onMouseLeave={(e) => {
-                      (e.target as SVGCircleElement).setAttribute("r", "4");
+                      const markerGroup = e.currentTarget as SVGGElement;
+                      const circle = markerGroup.querySelector("circle");
+                      if (circle) circle.setAttribute("r", "4");
                     }}
-                  />
+                  >
+                    <circle
+                      r={selectedLake?.name === lake.name ? 5.5 : 4}
+                      fill={CONTINENT_COLORS[lake.continent]}
+                      stroke="white"
+                      strokeWidth={1.5}
+                    />
+                    <text
+                      x={8}
+                      y={3}
+                      fontSize={selectedLake?.name === lake.name ? 9 : 8}
+                      fontWeight={selectedLake?.name === lake.name ? 700 : 600}
+                      fill="hsl(200 35% 12%)"
+                      stroke="rgba(255,255,255,0.9)"
+                      strokeWidth={2}
+                      paintOrder="stroke"
+                    >
+                      {lake.name}
+                    </text>
+                  </g>
                 </Marker>
               ))}
             </ZoomableGroup>
