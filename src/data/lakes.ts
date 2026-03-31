@@ -1,0 +1,915 @@
+import victoriaImg from "@/assets/lakes/victoria.jpg";
+import tanganyikaImg from "@/assets/lakes/tanganyika.jpg";
+import malawiImg from "@/assets/lakes/malawi.jpg";
+import turkanaImg from "@/assets/lakes/turkana.jpg";
+import chadImg from "@/assets/lakes/chad.jpg";
+import voltaImg from "@/assets/lakes/volta.jpg";
+import caspianImg from "@/assets/lakes/caspian.jpg";
+import baikalImg from "@/assets/lakes/baikal.jpg";
+import aralImg from "@/assets/lakes/aral.jpg";
+import deadseaImg from "@/assets/lakes/deadsea.jpg";
+import tobaImg from "@/assets/lakes/toba.jpg";
+import balkhashImg from "@/assets/lakes/balkhash.jpg";
+import tonlesapImg from "@/assets/lakes/tonlesap.jpg";
+import ladogaImg from "@/assets/lakes/ladoga.jpg";
+import genevaImg from "@/assets/lakes/geneva.jpg";
+import balatonImg from "@/assets/lakes/balaton.jpg";
+import comoImg from "@/assets/lakes/como.jpg";
+import plitviceImg from "@/assets/lakes/plitvice.jpg";
+import ohridImg from "@/assets/lakes/ohrid.jpg";
+import saimaaImg from "@/assets/lakes/saimaa.jpg";
+import superiorImg from "@/assets/lakes/superior.jpg";
+import michiganImg from "@/assets/lakes/michigan.jpg";
+import greatsaltlakeImg from "@/assets/lakes/greatsaltlake.jpg";
+import craterlakeImg from "@/assets/lakes/craterlake.jpg";
+import winnipegImg from "@/assets/lakes/winnipeg.jpg";
+import athabascaImg from "@/assets/lakes/athabasca.jpg";
+import titicacaImg from "@/assets/lakes/titicaca.jpg";
+import maracaiboImg from "@/assets/lakes/maracaibo.jpg";
+import nahuelhuapiImg from "@/assets/lakes/nahuelhuapi.jpg";
+import generalcarreraImg from "@/assets/lakes/generalcarrera.jpg";
+import uyuniImg from "@/assets/lakes/uyuni.jpg";
+import llanquihueImg from "@/assets/lakes/llanquihue.jpg";
+import eyreImg from "@/assets/lakes/eyre.jpg";
+import taupoImg from "@/assets/lakes/taupo.jpg";
+import hillierImg from "@/assets/lakes/hillier.jpg";
+import kutubuImg from "@/assets/lakes/kutubu.jpg";
+import teanauImg from "@/assets/lakes/teanau.jpg";
+import vostokImg from "@/assets/lakes/vostok.jpg";
+import donjuanImg from "@/assets/lakes/donjuan.jpg";
+import unterseeImg from "@/assets/lakes/untersee.jpg";
+import bonneyImg from "@/assets/lakes/bonney.jpg";
+import whillansImg from "@/assets/lakes/whillans.jpg";
+
+export interface Lake {
+  name: string;
+  country: string;
+  area: string;
+  maxDepth: string;
+  avgDepth?: string;
+  elevation?: string;
+  waterQuality: string;
+  fauna: string;
+  flora: string;
+  temperature: string;
+  access: string;
+  significance: string;
+  googleMapsUrl: string;
+  wikipediaUrl: string;
+  imageUrl: string;
+  imageCredit?: string;
+  lat: number;
+  lng: number;
+}
+
+export interface Continent {
+  name: string;
+  nameEt: string;
+  description: string;
+  emoji: string;
+  lakes: Lake[];
+}
+
+export const continents: Continent[] = [
+  {
+    name: "Africa",
+    nameEt: "Aafrika",
+    description: "Aafrika on koduks mõnedele maailma suurimatele ja sügavaimatele järvedele, mis asuvad peamiselt Ida-Aafrika lõhevööndis. Need järved on üliolulised piirkondlikule ökosüsteemile ja miljonitele inimestele.",
+    emoji: "🌍",
+    lakes: [
+      {
+        name: "Victoria järv",
+        country: "Tansaania, Uganda, Keenia",
+        lat: -1.0, lng: 33.0,
+        area: "68 870 km²",
+        maxDepth: "84 m",
+        avgDepth: "40 m",
+        elevation: "1 135 m",
+        waterQuality: "Mõõdukas; eutrofeerumine ja invasiivsete liikide (vesikintiisi) probleem. Vee läbipaistvus varieerub.",
+        fauna: "Üle 500 tsihhliidide liigi (paljud endeemilised), Niiluse ahven, Niiluse tilapia, mitmesugused kreveti- ja karbiliigid. Niiluse krokodill ja jõehobu.",
+        flora: "Papüürus, vesihüatsint (invasiivne), erinevad vetikad ja veetaimed.",
+        temperature: "Pinnavee temp. 24–29°C aastaringselt",
+        access: "Lennuühendus Entebbe (Uganda), Kisumu (Keenia) või Mwanza (Tansaania) lennujaamade kaudu. Parvlaev Uganda ja Tansaania vahel.",
+        significance: "Aafrika suurim järv ja maailma suurim troopikajärv. Niiluse jõe allikas.",
+        googleMapsUrl: "https://www.google.com/maps?q=-1.0,33.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Victoria",
+        imageUrl: victoriaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Tanganjika järv",
+        country: "Tansaania, Kongo DV, Burundi, Sambia",
+        lat: -6.0, lng: 29.5,
+        area: "32 900 km²",
+        maxDepth: "1 470 m",
+        avgDepth: "570 m",
+        elevation: "773 m",
+        waterQuality: "Väga hea läbipaistvus ülemistes kihtides. Alumised kihid on anoksilised (hapnikuvaesed).",
+        fauna: "Üle 350 kalaliigi (98% endeemilised tsihhliidid), krevettid, käsnad, meduusid. Unikaalne süvavee ökosüsteem.",
+        flora: "Vetikad, litoraalvööndi taimed, papüürus kaldal.",
+        temperature: "Pinnavee temp. 24–28°C, süvavesi ~23°C",
+        access: "Lennuga Bujumbura (Burundi) või Kigoma (Tansaania). Parvlaevad järvel. Maanteed olemas, kuid kehvas seisukorras.",
+        significance: "Maailma pikim (673 km) ja teine sügavaim mageveejärv. Üks vanemaid järvi maailmas (~9–12 miljonit aastat).",
+        googleMapsUrl: "https://www.google.com/maps?q=-6.0,29.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Tanganyika",
+        imageUrl: tanganyikaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Malawi järv (Njassa)",
+        country: "Malawi, Mosambiik, Tansaania",
+        lat: -12.0, lng: 34.5,
+        area: "29 600 km²",
+        maxDepth: "706 m",
+        avgDepth: "292 m",
+        elevation: "474 m",
+        waterQuality: "Hea, oligotroofne. Selge vesi, eriti lõunaosas.",
+        fauna: "Üle 1000 tsihhliidide liigi – maailma suurim kalaliikide mitmekesisus ühes järves. Kotkakala, erinevad karbid.",
+        flora: "Vallisneria, ceratophyllum, nümfead kaldavööndis.",
+        temperature: "Pinnavee temp. 24–28°C, süvavesi ~22°C",
+        access: "Lennuga Lilongwe või Blantyre (Malawi). Bussi ja autoga Cape Macleare, Nkhata Bay jt kuurortidesse. Parvlaev Ilala sõidab mööda järve.",
+        significance: "Maailma 9. suurim järv. UNESCO maailmapärandi nimistus (Malawi järve rahvuspark). Suurim kalaliikide mitmekesisus.",
+        googleMapsUrl: "https://www.google.com/maps?q=-12.0,34.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Malawi",
+        imageUrl: malawiImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Turkana järv",
+        country: "Keenia, Etioopia",
+        lat: 3.5, lng: 36.1,
+        area: "6 405 km²",
+        maxDepth: "109 m",
+        avgDepth: "30 m",
+        elevation: "360 m",
+        waterQuality: "Leeliseline (pH ~9.5), kõrge soolsus. Joodav, kuid karmi maitsega.",
+        fauna: "Niiluse krokodill (suurim populatsioon maailmas), jõehobu, tilapia, Niiluse ahven. Oluline linnustik.",
+        flora: "Hõre taimestik karmide tingimuste tõttu. Mõned vetikad ja kaldataimed.",
+        temperature: "Pinnavee temp. 26–30°C",
+        access: "Lennuga Nairobi > Lodwar/Loyangalani, sealt maanteed (4x4 soovituslik). Kauged ja kehvad teed.",
+        significance: "Maailma suurim alatine kõrbejärv. UNESCO maailmapärand. Olulised paleoantropoloogilised leiukohad.",
+        googleMapsUrl: "https://www.google.com/maps?q=3.5,36.1",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Turkana",
+        imageUrl: turkanaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Tšaadi järv",
+        country: "Tšaad, Kamerun, Niger, Nigeeria",
+        lat: 13.0, lng: 14.0,
+        area: "1 350 km² (oli 25 000 km²)",
+        maxDepth: "10.5 m",
+        avgDepth: "4.1 m",
+        elevation: "280 m",
+        waterQuality: "Madal ja mageveeline, kuid vähenev. Liiva- ja setteprobleem.",
+        fauna: "Tilapia, karpkala, jõehobu (vähenev), krokodill. Oluline rändlindude peatuskoht.",
+        flora: "Papüürus, pilliroog, ujuvad taimed. Kaldal savannitaimestik.",
+        temperature: "Pinnavee temp. 22–32°C hooajast sõltuvalt",
+        access: "Lennuga N'Djamena (Tšaad). Maantee kaudu, kuid piirkond on osaliselt ebaturvaline.",
+        significance: "Üks enim kahanenud järvi maailmas – 90% vähenemine alates 1960ndatest. Kliimaamuutuse sümboliteem.",
+        googleMapsUrl: "https://www.google.com/maps?q=13.0,14.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Chad",
+        imageUrl: chadImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Volta tehisjärv",
+        country: "Ghana",
+        lat: 7.0, lng: -0.5,
+        area: "8 502 km²",
+        maxDepth: "75 m",
+        avgDepth: "19 m",
+        elevation: "84 m",
+        waterQuality: "Mõõdukas. Mõningane eutrofeerumine ja saasteprobleem.",
+        fauna: "Tilapia, karpkala, ahven, krevetid. Jõehobu ja krokodill.",
+        flora: "Veetaimed, vetikad, ujuvad taimed, kaldavööndi metsakooslused.",
+        temperature: "Pinnavee temp. 26–31°C",
+        access: "Lennuga Accra (Ghana), sealt maanteed Akosambo paisuks. Parvlaevad järvel.",
+        significance: "Maailma suurim tehisjärv pindalalt. Ghanas oluline energiaallikas (Akosombo hüdroelektrijaam).",
+        googleMapsUrl: "https://www.google.com/maps?q=7.0,-0.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Volta",
+        imageUrl: voltaImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "Asia",
+    nameEt: "Aasia",
+    description: "Aasia hõlmab tohutut geograafilist mitmekesisust – Siberi jäistest süvajärvedest Lähis-Ida soolajärvedeni ja Kagu-Aasia troopikajärvedeni.",
+    emoji: "🌏",
+    lakes: [
+      {
+        name: "Kaspia meri",
+        country: "Kasahstan, Venemaa, Türkmenistan, Iraan, Aserbaidžaan",
+        lat: 41.0, lng: 51.0,
+        area: "371 000 km²",
+        maxDepth: "1 025 m",
+        avgDepth: "211 m",
+        elevation: "-28 m (merepinnast allpool)",
+        waterQuality: "Riimvesi (soolsus ~1.2%). Saastatus varieerub – Bakuu piirkonnas tugevam.",
+        fauna: "Kaspia hüljes, tuur (beluga, sterlett), kilud, karbid. Üle 850 loomaliigi.",
+        flora: "Vetikad, meriheina-taolised taimed, kaldavööndi pilliroog.",
+        temperature: "Pinnavee temp. 0–28°C (sõltuvalt piirkonnast ja aastaajast)",
+        access: "Lennuühendus Bakuusse (Aserbaidžaan), Aktausse (Kasahstan) või Bandar Anzalisse (Iraan). Parvlaevad Bakuu-Aktau vahel.",
+        significance: "Maailma suurim suletud veekogu. Tohutu nafta- ja maagaasi varud. Haruldased tuuraliigid.",
+        googleMapsUrl: "https://www.google.com/maps?q=41.0,51.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Caspian_Sea",
+        imageUrl: caspianImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Baikali järv",
+        country: "Venemaa (Siber)",
+        lat: 53.5, lng: 108.0,
+        area: "31 722 km²",
+        maxDepth: "1 642 m",
+        avgDepth: "744 m",
+        elevation: "455 m",
+        waterQuality: "Erakordselt puhas ja läbipaistev. Üks puhtaimaid mageveejärvi maailmas.",
+        fauna: "Baikali hüljes (nerpa, ainus magevee hüljes), omul (endeemiline lõheline), golomjanka (läbipaistev kala), üle 2500 loomaliigi (80% endeemilised).",
+        flora: "Üle 1000 taimeliigi, sh unikaalsed süvaveevetikad. Spongiillid (magevee käsnad).",
+        temperature: "Pinnavee temp. 0–15°C (augustis max), süvavesi ~3.5°C aastaringselt",
+        access: "Lennuga Irkutskisse, sealt bussiga Listvjankasse (1h). Trans-Siberi raudtee kulgeb mööda kaldaid. Parvlaev Olhoni saarele.",
+        significance: "Maailma sügavaim (1642 m) ja vanim (~25 miljonit aastat) järv. 20% maailma mageveest. UNESCO maailmapärand.",
+        googleMapsUrl: "https://www.google.com/maps?q=53.5,108.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Baikal",
+        imageUrl: baikalImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Araali meri",
+        country: "Kasahstan, Usbekistan",
+        lat: 45.0, lng: 58.5,
+        area: "~7 000 km² (oli 68 000 km²)",
+        maxDepth: "~40 m (oli 68 m)",
+        waterQuality: "Väga halb. Kõrge soolsus, pestitsiidid ja kemikaalid. Põhja-Araal taastub osaliselt.",
+        fauna: "Enamik kalaliike hävinud. Mõned krevettid ja invertebradid. Põhja-Araalis taastatakse kambalapopulatsiooni.",
+        flora: "Minimaalne. Endise põhja alad on nüüd Aralkumi kõrb.",
+        temperature: "Pinnavee temp. -2–26°C hooajast sõltuvalt",
+        access: "Lennuga Nukusesse (Usbekistan) või Aralskisse (Kasahstan). 4x4 maanteed vajalikud.",
+        significance: "Üks suurimaid keskkonnakatastroofide näiteid maailmas. Kuivas 90% ulatuses 1960–2010.",
+        googleMapsUrl: "https://www.google.com/maps?q=45.0,58.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Aral_Sea",
+        imageUrl: aralImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Surnumeri",
+        country: "Iisrael, Jordaania, Palestiina",
+        lat: 31.5, lng: 35.5,
+        area: "605 km²",
+        maxDepth: "306 m",
+        avgDepth: "120 m",
+        elevation: "-430 m (maailma madalaim punkt)",
+        waterQuality: "Ülisoolane (~34% soolsus, 10x merest soolasem). Joodamatu.",
+        fauna: "Praktiliselt puudub. Mõned ekstremofiilsed bakterid ja seened.",
+        flora: "Puudub järves. Kaldal kõrbetaimed, palmiidenaasid.",
+        temperature: "Pinnavee temp. 19–31°C",
+        access: "Lennuga Tel Avivi või Ammani, sealt autoga ~1–1.5h. Hästi välja ehitatud teedevõrk ja kuurordid.",
+        significance: "Maailma madalaim veekogu (-430 m). Unikaalne keemiline koostis. Tuhandete aastate ajalugu.",
+        googleMapsUrl: "https://www.google.com/maps?q=31.5,35.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Dead_Sea",
+        imageUrl: deadseaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Toba järv",
+        country: "Indoneesia (Sumatra)",
+        lat: 2.6, lng: 98.8,
+        area: "1 130 km²",
+        maxDepth: "505 m",
+        avgDepth: "250 m",
+        elevation: "905 m",
+        waterQuality: "Hea, oligotroofne. Selge ja puhas.",
+        fauna: "Endeemilised kalaliigid (Neolissochilus, Rasbora tobana). Vähesed veelinnud.",
+        flora: "Metsataimed kaldal, vetikad, veetaimed.",
+        temperature: "Pinnavee temp. 24–27°C",
+        access: "Lennuga Medani (Põhja-Sumatra), sealt autoga Parapat'i (~4h). Parvlaev Samosiri saarele.",
+        significance: "Maailma suurim vulkaaniline järv. Tekkinud supervulkaani purskel ~74 000 a. tagasi. Bataki kultuuri keskus.",
+        googleMapsUrl: "https://www.google.com/maps?q=2.6,98.8",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Toba",
+        imageUrl: tobaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Balkhaši järv",
+        country: "Kasahstan",
+        lat: 46.5, lng: 74.5,
+        area: "16 400 km²",
+        maxDepth: "26 m",
+        avgDepth: "5.8 m",
+        elevation: "341 m",
+        waterQuality: "Unikaalne – lääneosa magevesi, idaosa soolane vesi. Ühes järves kaks eri tüüpi vett.",
+        fauna: "Koha, säga, karpkala, ahven. Pelikan, flamingo, kormoran.",
+        flora: "Pilliroog, hundinui kaldavööndis. Vetikad.",
+        temperature: "Pinnavee temp. 0–28°C (jäätub talvel)",
+        access: "Lennuga Almatõsse, sealt autoga (~350 km). Balkhash linna kaudu.",
+        significance: "Aasia suurimaid järvi. Unikaalne hüdroloogia – pool mage-, pool soolaveeline.",
+        googleMapsUrl: "https://www.google.com/maps?q=46.5,74.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Balkhash",
+        imageUrl: balkhashImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Tonlé Sap",
+        country: "Kambodža",
+        lat: 12.9, lng: 104.1,
+        area: "2 700–16 000 km² (hooajaline)",
+        maxDepth: "10 m (kuiv) – 14 m (vihmahooaeg)",
+        waterQuality: "Toitainerikas, hägune. Väga viljakas.",
+        fauna: "Üle 200 kalaliigi, Iraavadi delfiin, madud, mitmesugused linnud. Kagu-Aasia suurim sisevete kalavarud.",
+        flora: "Ujuvad metsad, üleujutusmetsad, vesinukk, lootostaimed.",
+        temperature: "Pinnavee temp. 26–33°C",
+        access: "Lennuga Siem Reapi (Angkor Wati lähistel), sealt paadiga. Bussiga Phnom Penhist (~5h).",
+        significance: "Maailma suurim hooajaline mageveejärv. Pindala muutub 6x vihmahooajal. UNESCO biosfääri kaitseala.",
+        googleMapsUrl: "https://www.google.com/maps?q=12.9,104.1",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Tonl%C3%A9_Sap",
+        imageUrl: tonlesapImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "Europe",
+    nameEt: "Euroopa",
+    description: "Euroopa järved ulatuvad Skandinaavia selgetest fjordijärvedest Alpide mäestikujärvedeni ja Ida-Euroopa laiuvate tasandikujärvedeni.",
+    emoji: "🌍",
+    lakes: [
+      {
+        name: "Laadoga järv",
+        country: "Venemaa",
+        lat: 61.0, lng: 31.0,
+        area: "17 700 km²",
+        maxDepth: "230 m",
+        avgDepth: "51 m",
+        elevation: "5 m",
+        waterQuality: "Mõõdukas kuni hea. Mõningane saastatus tööstuspiirkondade lähedal.",
+        fauna: "Laadoga viigerhüljes (endeemiline), lõhe, siig, rääbis, ahven, haug. Üle 50 kalaliigi.",
+        flora: "Pilliroog, hundinui, nümfead madalates lahtedes. Vetikad.",
+        temperature: "Pinnavee temp. 0–20°C (jäätub talvel 2–3 kuuks)",
+        access: "Lennuga Peterburi, sealt autoga ~1–2h. Rongiga Sortavalasse. Laevaga Valamo saarele.",
+        significance: "Euroopa suurim järv. Oluline ajalooliselt (Leningradi blokaad, Elu tee jääl).",
+        googleMapsUrl: "https://www.google.com/maps?q=61.0,31.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Ladoga",
+        imageUrl: ladogaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Genfi järv (Léman)",
+        country: "Šveits, Prantsusmaa",
+        lat: 46.4, lng: 6.5,
+        area: "580 km²",
+        maxDepth: "310 m",
+        avgDepth: "154 m",
+        elevation: "372 m",
+        waterQuality: "Väga hea. Ranged kaitsemeetmed alates 1960ndatest.",
+        fauna: "Siig, forell, ahven, haug. Pardid ja luiged.",
+        flora: "Kaldavööndi taimed, nümfead, vetikad.",
+        temperature: "Pinnavee temp. 6–24°C",
+        access: "Lennuga Genfi lennujaama. Rongiga Lausanne'i, Montreux'sse, Evian'isse. Aurulaev CGN sõidab mööda järve.",
+        significance: "Lääne-Euroopa suurim järv. Genfi purskkaev (Jet d'Eau). UNESCO maailmapärand (Lavaux' viinamarjaistandused).",
+        googleMapsUrl: "https://www.google.com/maps?q=46.4,6.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Geneva",
+        imageUrl: genevaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Balaton",
+        country: "Ungari",
+        lat: 46.8, lng: 17.7,
+        area: "594 km²",
+        maxDepth: "12.2 m",
+        avgDepth: "3.3 m",
+        elevation: "105 m",
+        waterQuality: "Mõõdukas. Mõningane eutrofeerumine, kuid paranemas.",
+        fauna: "Koha, haug, karpkala, ahven. Linnustik rikas – hõbehaigur, roohabekas.",
+        flora: "Pilliroog (suured roostikud), nümfead, hundinui.",
+        temperature: "Pinnavee temp. 2–28°C (soe ja madalaveeline, soojeneb kiiresti)",
+        access: "Lennuga Budapesti, sealt rongiga ~1.5h. Hea teedevõrk. Parvlaevad järvel.",
+        significance: "Kesk-Euroopa suurim järv. Ungari populaarseim kuurort, tuntud kui 'Ungari meri'.",
+        googleMapsUrl: "https://www.google.com/maps?q=46.8,17.7",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Balaton",
+        imageUrl: balatonImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Como järv",
+        country: "Itaalia",
+        lat: 46.0, lng: 9.3,
+        area: "146 km²",
+        maxDepth: "425 m",
+        avgDepth: "154 m",
+        elevation: "198 m",
+        waterQuality: "Hea kuni väga hea. Paranemas viimaste aastakümnete jooksul.",
+        fauna: "Forell, ahven, harilik peipsi siig, angerjas. Pardid, luiged.",
+        flora: "Kaldavööndi subtroopilised taimed (palmid, tsüpress, oleander), vetikad.",
+        temperature: "Pinnavee temp. 6–25°C",
+        access: "Lennuga Milano Malpensa lennujaama (~1h autoga). Rongiga Como linna. Parvlaevad ja hüdroplaanid järvel.",
+        significance: "Itaalia sügavaim järv. Kuulus oma villade ja aedade poolest. Populaarne filmi- ja puhkusekoht.",
+        googleMapsUrl: "https://www.google.com/maps?q=46.0,9.3",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Como",
+        imageUrl: comoImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Plitviče järved",
+        country: "Horvaatia",
+        lat: 44.88, lng: 15.62,
+        area: "2 km² (16 järve)",
+        maxDepth: "46 m",
+        avgDepth: "12 m",
+        elevation: "503–636 m",
+        waterQuality: "Erakordselt puhas, karbonaatrikas. Türkiissinine-roheline värvus.",
+        fauna: "Forell, äike, konnad, salamandrid. Pruunkaru, hunt, ilves ümbruskonnas.",
+        flora: "Sammal, vetikad (travertiini moodustavad), pöökimetsad, segametsad.",
+        temperature: "Pinnavee temp. 4–24°C",
+        access: "Lennuga Zagrebi, sealt bussiga ~2h. Autoga Adriai rannikult ~2h. Hea bussiliiklus.",
+        significance: "UNESCO maailmapärand alates 1979. 16 astmeliselt paiknevat järve koos jogadega. Horvaatia kuulsaim loodusvaatamisväärsus.",
+        googleMapsUrl: "https://www.google.com/maps?q=44.88,15.62",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Plitvice_Lakes_National_Park",
+        imageUrl: plitviceImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Ohrid järv",
+        country: "Põhja-Makedoonia, Albaania",
+        lat: 41.1, lng: 20.7,
+        area: "358 km²",
+        maxDepth: "288 m",
+        avgDepth: "155 m",
+        elevation: "693 m",
+        waterQuality: "Väga hea. Puhas ja selge vesi allikatoitumise tõttu.",
+        fauna: "Ohrid forell (endeemiline), plasica, krevettid, käsnad. Üle 200 endeemilise liigi.",
+        flora: "Chara vetikad, potamogeton, rannataimed.",
+        temperature: "Pinnavee temp. 6–24°C",
+        access: "Lennuga Ohridisse (Põhja-Makedoonia) või Tirana (Albaania). Bussiga mõlemast riigist.",
+        significance: "Euroopa vanim järv (~2–3 miljonit aastat). UNESCO maailmapärand (nii loodus- kui kultuuripärand). Erakordne endemism.",
+        googleMapsUrl: "https://www.google.com/maps?q=41.1,20.7",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Ohrid",
+        imageUrl: ohridImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Saimaa",
+        country: "Soome",
+        lat: 61.5, lng: 28.0,
+        area: "4 380 km²",
+        maxDepth: "82 m",
+        avgDepth: "17 m",
+        elevation: "76 m",
+        waterQuality: "Väga hea. Puhas ja selge.",
+        fauna: "Saimaa viigerhüljes (äärmiselt ohustatud, ~430 isendit), lõhe, siig, haug, ahven.",
+        flora: "Kaldametsad, pilliroog, nümfead, vetikad.",
+        temperature: "Pinnavee temp. 0–22°C (jäätub talvel ~5 kuuks)",
+        access: "Lennuga Helsingisse, sealt rongiga Lappeenrantasse (~2.5h) või Savonlinnasse. Saimaa kanal.",
+        significance: "Soome suurim järv, üks Euroopa suurimaid. Haruldase Saimaa viigerhüljese kodupaik.",
+        googleMapsUrl: "https://www.google.com/maps?q=61.5,28.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Saimaa",
+        imageUrl: saimaaImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "North America",
+    nameEt: "Põhja-Ameerika",
+    description: "Põhja-Ameerika on koduks Suurtele järvedele – maailma suurimale mageveejärvede süsteemile – ning arvukatele mägi- ja vulkaanijärvedele.",
+    emoji: "🌎",
+    lakes: [
+      {
+        name: "Ülem-järv (Superior)",
+        country: "USA, Kanada",
+        lat: 47.7, lng: -87.5,
+        area: "82 100 km²",
+        maxDepth: "406 m",
+        avgDepth: "149 m",
+        elevation: "183 m",
+        waterQuality: "Väga hea. Oligotroofne, selge ja külm.",
+        fauna: "Järveforell, siig, tint, ahven. Kotkas, kajakas.",
+        flora: "Minimaalne oligotroofse iseloomu tõttu. Kalda metsad.",
+        temperature: "Pinnavee temp. 0–18°C (jäätub osaliselt talvel)",
+        access: "Lennuga Duluth (Minnesota), Thunder Bay (Ontario) või Marquette (Michigan). Maanteed ümber järve.",
+        significance: "Maailma suurim mageveejärv pindalalt. Suurte järvede süsteemi osa. 10% maailma pinnaveest.",
+        googleMapsUrl: "https://www.google.com/maps?q=47.7,-87.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Superior",
+        imageUrl: superiorImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Michigan järv",
+        country: "USA",
+        lat: 44.0, lng: -87.0,
+        area: "57 800 km²",
+        maxDepth: "281 m",
+        avgDepth: "85 m",
+        elevation: "176 m",
+        waterQuality: "Hea. Paranemas pärast 20. sajandi saastumisest taastumist.",
+        fauna: "Lõhe (istutatud), siig, ahven, järveforell. Invasiivne sebrakarp.",
+        flora: "Kalda metsad ja düünitaimestik. Vetikad.",
+        temperature: "Pinnavee temp. 0–22°C",
+        access: "Lennuga Chicagosse, Milwaukee'sse või Traverse City'sse. Maanteed ja parvlaevad.",
+        significance: "Ainus Suur järv, mis asub täielikult USA-s. Chicago linna joogivesi. Kuulsad liivarannad.",
+        googleMapsUrl: "https://www.google.com/maps?q=44.0,-87.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Michigan",
+        imageUrl: michiganImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Suure Soolajärv",
+        country: "USA (Utah)",
+        lat: 41.0, lng: -112.5,
+        area: "4 400 km² (varieerub)",
+        maxDepth: "10 m",
+        avgDepth: "4.9 m",
+        elevation: "1 280 m",
+        waterQuality: "Ülisoolane (12–27% soolsus). Joodamatu.",
+        fauna: "Artemia (soolakrevett) – massiliselt. Mõned kärbsevastsed. Miljonid rändlinnud.",
+        flora: "Minimaalne. Halofiilsed vetikad ja bakterid.",
+        temperature: "Pinnavee temp. -2–25°C",
+        access: "Lennuga Salt Lake City lennujaama (otse järve kaldal). Autoga Antelope Islandi rahvuspark.",
+        significance: "Lääne poolkera suurim soolajärv. Oluline lindude rändepeatus. Unikaalne ökosüsteem.",
+        googleMapsUrl: "https://www.google.com/maps?q=41.0,-112.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Great_Salt_Lake",
+        imageUrl: greatsaltlakeImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Kraatri järv (Crater Lake)",
+        country: "USA (Oregon)",
+        lat: 42.94, lng: -122.1,
+        area: "53 km²",
+        maxDepth: "594 m",
+        avgDepth: "350 m",
+        elevation: "1 883 m",
+        waterQuality: "Üks puhtaimaid maailmas. Erakordselt selge, sügavsinine.",
+        fauna: "Vikerforell ja punane lõhe (istutatud). Looduslikult kalata.",
+        flora: "Minimaalne järves. Mägimetsad ümbruses.",
+        temperature: "Pinnavee temp. 1–16°C (ei jäätu täielikult tänu sügavusele)",
+        access: "Lennuga Medfordisse (Oregon) või Klamath Fallsisse. Autoga ~1.5h. Rahvuspargi teed (suletud talvel lumele).",
+        significance: "USA sügavaim järv. Maailma üks selgemaid veekogusid. Tekkinud 7700 a. tagasi Mt. Mazama vulkaanipurskel.",
+        googleMapsUrl: "https://www.google.com/maps?q=42.94,-122.1",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Crater_Lake",
+        imageUrl: craterlakeImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Winnipeg järv",
+        country: "Kanada (Manitoba)",
+        lat: 52.0, lng: -97.0,
+        area: "24 514 km²",
+        maxDepth: "36 m",
+        avgDepth: "12 m",
+        elevation: "217 m",
+        waterQuality: "Mõõdukas. Eutrofeerumine on kasvav probleem.",
+        fauna: "Koha, haug, siig, ahven. Pelikan, kormoran.",
+        flora: "Pilliroog, hundinui, vetikad (sinivetika õitsengud probleemiks).",
+        temperature: "Pinnavee temp. 0–23°C (jäätub talvel ~5 kuuks)",
+        access: "Lennuga Winnipegi, sealt autoga ~1h kaldani. Grand Beach provintsipark populaarne.",
+        significance: "Kanada 6. suurim järv. Ajalooliselt oluline karusnahakauplejatele. Suurepärased rannad.",
+        googleMapsUrl: "https://www.google.com/maps?q=52.0,-97.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Winnipeg",
+        imageUrl: winnipegImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Athabasca järv",
+        country: "Kanada (Alberta, Saskatchewan)",
+        lat: 59.0, lng: -109.0,
+        area: "7 935 km²",
+        maxDepth: "124 m",
+        avgDepth: "26 m",
+        elevation: "213 m",
+        waterQuality: "Üldiselt hea, kuid õliliivade kaevandamise mõju on murettekitav.",
+        fauna: "Siig, haug, koha, järveforell. Pelikan (suurim koloonia Kanadas). Karibu, karu.",
+        flora: "Boreaalmetsa taimed kaldal. Vetikad.",
+        temperature: "Pinnavee temp. 0–16°C (jäätub oktoobrist juunini)",
+        access: "Lennuga Fort McMurray (Alberta) või Fort Chipewyan. Talvised jääteed.",
+        significance: "Osa Mackenzie jõe vesikonnaast. Athabasca liivadüünid (provintsipark). Põlisrahvaste ajalugu.",
+        googleMapsUrl: "https://www.google.com/maps?q=59.0,-109.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Athabasca",
+        imageUrl: athabascaImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "South America",
+    nameEt: "Lõuna-Ameerika",
+    description: "Lõuna-Ameerika järved ulatuvad Andide kõrgmäestiku soolajärvedest kuni Amazonase vihmametsade oksbow-järvedeni ja Patagoonia jääjärvedeni.",
+    emoji: "🌎",
+    lakes: [
+      {
+        name: "Titicaca järv",
+        country: "Peruu, Boliivia",
+        lat: -15.8, lng: -69.3,
+        area: "8 372 km²",
+        maxDepth: "281 m",
+        avgDepth: "107 m",
+        elevation: "3 812 m",
+        waterQuality: "Üldiselt hea, kuid Puno lahe piirkonnas saastunud.",
+        fauna: "Titicaca-känn (äärmiselt ohustatud endeemiline konn), killifish, ispi. Andide flamingo, sukelpütt.",
+        flora: "Totora-pilliroog (kasutatakse paatide ja ujuvsaarte ehitamiseks), lemna, elodea.",
+        temperature: "Pinnavee temp. 10–14°C aastaringselt",
+        access: "Lennuga Lima > Juliaca/Puno (Peruu) või La Paz > Copacabana (Boliivia). Buss mõlemast riigist. Paadiga saartele.",
+        significance: "Maailma kõrgeimal navigeeritav järv (3812 m). Inkade tsivilisatsiooni häll. Uros ujuvsaared.",
+        googleMapsUrl: "https://www.google.com/maps?q=-15.8,-69.3",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Titicaca",
+        imageUrl: titicacaImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Maracaibo järv",
+        country: "Venezuela",
+        lat: 9.8, lng: -71.5,
+        area: "13 210 km²",
+        maxDepth: "60 m",
+        avgDepth: "20 m",
+        elevation: "0 m (meretasapinnal)",
+        waterQuality: "Halb. Naftareostus ja tööstussaaste.",
+        fauna: "Maracaibo koha, krevettid. Manatid (ohustatud), delfiinid. Flamingod.",
+        flora: "Mangrovid, pilliroog, vesihüatsint.",
+        temperature: "Pinnavee temp. 28–33°C",
+        access: "Lennuga Maracaibosse. Autoga. Sild üle järve (General Rafael Urdaneta sild, 8.7 km).",
+        significance: "Lõuna-Ameerika suurim järv. Maailma üks suurimaid naftamaardlaid. Catatumbo välgud (pidev äike).",
+        googleMapsUrl: "https://www.google.com/maps?q=9.8,-71.5",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Maracaibo",
+        imageUrl: maracaiboImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Nahuel Huapi järv",
+        country: "Argentina",
+        lat: -41.1, lng: -71.3,
+        area: "557 km²",
+        maxDepth: "464 m",
+        avgDepth: "157 m",
+        elevation: "764 m",
+        waterQuality: "Väga hea. Oligotroofne, kristallselge.",
+        fauna: "Istutatud lõhe ja forell. Pudu (maailma väikseim hirv), Patagoonia kotkas.",
+        flora: "Andide-Patagoonia metsad (arrayanes, lenga, coihue), vetikad.",
+        temperature: "Pinnavee temp. 6–18°C",
+        access: "Lennuga San Carlos de Barilochesse (otselennut Buenos Airesest). Autoga Ruta 40 kaudu.",
+        significance: "Argentina vanim rahvuspark (1934). Patagoonia kauneim järv. Talvespordikeskus (Cerro Catedral).",
+        googleMapsUrl: "https://www.google.com/maps?q=-41.1,-71.3",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Nahuel_Huapi_Lake",
+        imageUrl: nahuelhuapiImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "General Carrera / Buenos Aires järv",
+        country: "Tšiili, Argentina",
+        lat: -46.5, lng: -72.0,
+        area: "1 850 km²",
+        maxDepth: "586 m",
+        avgDepth: "~280 m",
+        elevation: "217 m",
+        waterQuality: "Erakordselt puhas. Jäävete toitumine, türkiissinine.",
+        fauna: "Istutatud lõhe ja forell. Flamingod, luiged, kondorid.",
+        flora: "Patagoonia steppetaimestik, kaldavööndi põõsad.",
+        temperature: "Pinnavee temp. 4–14°C",
+        access: "Lennuga Balmaceda (Tšiili) > Chile Chico. Argentina poolelt Perito Moreno. Maanteed keerulised.",
+        significance: "Lõuna-Ameerika sügavaim järv. Marmorkoopad (Cuevas de Mármol) – üks looduse imesid.",
+        googleMapsUrl: "https://www.google.com/maps?q=-46.5,-72.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/General_Carrera_Lake",
+        imageUrl: generalcarreraImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Salar de Uyuni",
+        country: "Boliivia",
+        lat: -20.2, lng: -67.6,
+        area: "10 582 km²",
+        maxDepth: "Hooajaline (0–30 cm vett)",
+        waterQuality: "Ülisoolane, liitiumirikas. Joodamatu.",
+        fauna: "Andide flamingo (vihmahooajal). Minimaalne fauna.",
+        flora: "Kaktusmetsad saarel (Isla Incahuasi). Muidu puudub.",
+        temperature: "Õhutemp. -15–20°C (ekstreemne kõrgmäestikukliima, 3656 m)",
+        access: "Lennuga La Paz > Uyuni (bussiga ~10h või lennuga ~1h). 4x4 tuurid Uyunist.",
+        significance: "Maailma suurim soolatasandik. ~50% maailma liitiumi varud. 'Peegel efekt' vihmahooajal.",
+        googleMapsUrl: "https://www.google.com/maps?q=-20.2,-67.6",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Salar_de_Uyuni",
+        imageUrl: uyuniImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Llanquihue järv",
+        country: "Tšiili",
+        lat: -41.1, lng: -72.8,
+        area: "860 km²",
+        maxDepth: "317 m",
+        avgDepth: "182 m",
+        elevation: "50 m",
+        waterQuality: "Hea. Oligotroofne, selge.",
+        fauna: "Istutatud lõhe ja forell. Mustkaelluik, pardid.",
+        flora: "Vihmametsad (alerce, araukaariad). Kaldataimed.",
+        temperature: "Pinnavee temp. 8–18°C",
+        access: "Lennuga Puerto Monttisse (otse Santiagost). Autoga Puerto Varas (~20 min).",
+        significance: "Tšiili teine suurim järv. Osorno vulkaani vaade. Saksa kolonistide pärand.",
+        googleMapsUrl: "https://www.google.com/maps?q=-41.1,-72.8",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Llanquihue_Lake",
+        imageUrl: llanquihueImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "Oceania",
+    nameEt: "Okeaania",
+    description: "Okeaania, ehkki tuntud ookeanide, mitte järvede poolest, hõlmab Austraalia, Uus-Meremaa ja Paapua Uus-Guinea unikaalseid ja sageli äärmuslikke järvi.",
+    emoji: "🌏",
+    lakes: [
+      {
+        name: "Eyre'i järv (Kati Thanda)",
+        country: "Austraalia (Lõuna-Austraalia)",
+        lat: -28.4, lng: 137.4,
+        area: "0–9 500 km² (enamasti kuiv)",
+        maxDepth: "~6 m (täitunult)",
+        elevation: "-15 m (Austraalia madalaim punkt)",
+        waterQuality: "Ülisoolane täitunult. Enamasti kuiv soolatasandik.",
+        fauna: "Pelikan (massiline pesitsemine täitunult), pardid, flamingod. Kilpkapju kõrbes.",
+        flora: "Halofiilsed taimed, soolarohi. Kõrbetaimestik ümbruses.",
+        temperature: "Õhutemp. 5–50°C (äärmuslik kõrbekliima)",
+        access: "Lennuga Adelaide > William Creek või Marree. 4x4 hädavajalik. Lennuvaatlustuure korraldatakse.",
+        significance: "Austraalia suurim järv (kui täitunud). Enamasti kuiv soolajärv. Maa kiiruse rekordid (1964).",
+        googleMapsUrl: "https://www.google.com/maps?q=-28.4,137.4",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Eyre",
+        imageUrl: eyreImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Taupo järv",
+        country: "Uus-Meremaa",
+        lat: -38.8, lng: 176.0,
+        area: "616 km²",
+        maxDepth: "186 m",
+        avgDepth: "110 m",
+        elevation: "356 m",
+        waterQuality: "Väga hea. Oligotroofne, kristallselge.",
+        fauna: "Vikerforell, pruunforell (mõlemad istutatud). Pardid, hägrid.",
+        flora: "Põlismetsad kaldal, vetikad, veesamblik.",
+        temperature: "Pinnavee temp. 8–20°C",
+        access: "Lennuga Auckland > Taupo linn (autoga ~3.5h, lennuga 1h). Rongiga mitte otse.",
+        significance: "Uus-Meremaa suurim järv. Tekkinud supervulkaani purskel ~26 500 a. tagasi. Maailmakuulus kalastuskoht.",
+        googleMapsUrl: "https://www.google.com/maps?q=-38.8,176.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Taupo",
+        imageUrl: taupoImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Hillier järv",
+        country: "Austraalia (Lääne-Austraalia)",
+        lat: -34.09, lng: 123.2,
+        area: "0.15 km²",
+        maxDepth: "~1 m",
+        elevation: "0 m",
+        waterQuality: "Ülisoolane. Roosa värvus (Dunaliella salina vetika ja halofiilsete bakterite tõttu).",
+        fauna: "Minimaalne. Artemia (soolakrevett), mõned bakterid.",
+        flora: "Minimaalne. Paperbark ja eukalüptimetsad ümbruses.",
+        temperature: "Pinnavee temp. 15–25°C",
+        access: "Lennuga Perth > Esperance, sealt helikopteri- või väikelennukituure Middle Islandile. Reisil paadiga.",
+        significance: "Maailma kuulsaim roosa järv. Värvus püsib ka vee eemaldamisel. Teaduslik müsteerium.",
+        googleMapsUrl: "https://www.google.com/maps?q=-34.09,123.2",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Hillier",
+        imageUrl: hillierImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Kutubu järv",
+        country: "Paapua Uus-Guinea",
+        lat: -6.38, lng: 143.3,
+        area: "49 km²",
+        maxDepth: "70 m",
+        avgDepth: "37 m",
+        elevation: "808 m",
+        waterQuality: "Väga hea. Selge, puhas troopikavesi.",
+        fauna: "14 endeemilist kalaliigi (sh unikaalsed vikerforellid). Krokodillid, kilpkonnad.",
+        flora: "Troopilised vihmametsad, saared, ujuv taimestik.",
+        temperature: "Pinnavee temp. 23–27°C",
+        access: "Lennuga Port Moresby > Mendi. Maanteed halvad, paadiga. Raskesti ligipääsetav.",
+        significance: "Paapua Uus-Guinea suurim järv. Ramsari märgala. Unikaalne isoleeritud ökosüsteem.",
+        googleMapsUrl: "https://www.google.com/maps?q=-6.38,143.3",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Kutubu",
+        imageUrl: kutubuImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Te Anau järv",
+        country: "Uus-Meremaa",
+        lat: -45.4, lng: 167.7,
+        area: "344 km²",
+        maxDepth: "417 m",
+        avgDepth: "150 m",
+        elevation: "202 m",
+        waterQuality: "Erakordselt puhas. Oligotroofne.",
+        fauna: "Takahe (äärmuselt haruldane lind, taasavastatud 1948), forell, angerjas. Kea (mägipapagoi).",
+        flora: "Böökmetsad, podokarpid, samblad, sõnajalad.",
+        temperature: "Pinnavee temp. 6–16°C",
+        access: "Lennuga Queenstown, sealt autoga Te Anau linna (~2h). Värav Milford Soundi.",
+        significance: "Uus-Meremaa suurim lõunasaare järv. Te Anau koopad (tulekärbeskoloonia). Fiordland RP värav.",
+        googleMapsUrl: "https://www.google.com/maps?q=-45.4,167.7",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Te_Anau",
+        imageUrl: greatsaltlakeImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  },
+  {
+    name: "Antarctica",
+    nameEt: "Antarktika",
+    description: "Antarktika peidab oma jääkatte all märkimisväärseid järvi ning rannikul ja oaasides leidub unikaalseid ülisoolaseid ja jäätuid veekogusid.",
+    emoji: "🌍",
+    lakes: [
+      {
+        name: "Vostoki järv",
+        country: "Antarktika (Venemaa jaam)",
+        lat: -77.0, lng: 105.0,
+        area: "12 500 km²",
+        maxDepth: "~900 m",
+        elevation: "Jää all (~4 km jää all), veepind ~−200 m",
+        waterQuality: "Ülipuhas, hapnikurikas. Miljoneid aastaid isoleeritud.",
+        fauna: "Teadmata. Mikroobid avastatud proovipuurimisel. Võimalikud unikaalsed elusvormid.",
+        flora: "Teadmata. Potentsiaalselt ekstremofiilsed vetikad.",
+        temperature: "Vee temp. ~-3°C (ei jäätu kõrge rõhu tõttu)",
+        access: "Ligipääsmatu tavaturistidele. Teadusekspeditsioonid Vostoki jaamast puurimise teel.",
+        significance: "Maailma suurim jää-alune järv. Isoleeritud 15–25 miljonit aastat. Potentsiaalne Euroopa (Jupiteri kuu) analoog.",
+        googleMapsUrl: "https://www.google.com/maps?q=-77.0,105.0",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Vostok",
+        imageUrl: vostokImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Don Juani tiik",
+        country: "Antarktika (Wright Valley)",
+        lat: -77.56, lng: 161.18,
+        area: "0.03 km²",
+        maxDepth: "~0.1 m",
+        elevation: "116 m",
+        waterQuality: "Maailma soolaseim veekogu (40% soolsus – 18x soolasem kui meri).",
+        fauna: "Puudub. Isegi ekstremofiilsed organismid ei suuda elada.",
+        flora: "Puudub.",
+        temperature: "Ei jäätu isegi -50°C juures tänu ülisoolsusele",
+        access: "Ainult teadusekspeditsioonidega. McMurdo jaamast helikopteriga Wright Valleysse.",
+        significance: "Maailma soolaseim veekogu. Ei jäätu kunagi. Marsi uuringute analoogkeskkond.",
+        googleMapsUrl: "https://www.google.com/maps?q=-77.56,161.18",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Don_Juan_Pond",
+        imageUrl: donjuanImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Untersee järv",
+        country: "Antarktika (Kuninganna Maudi maa)",
+        lat: -71.35, lng: 13.45,
+        area: "11.4 km²",
+        maxDepth: "169 m",
+        elevation: "563 m",
+        waterQuality: "Ülipuhas, leeliseline (pH 12). Metaaniga küllastunud.",
+        fauna: "Stromatoliidid (elusad fossiilid – tsüanobakterite struktuurid).",
+        flora: "Tsüanobakterid, vetikad põhjal.",
+        temperature: "Vee temp. ~0–4°C pinna all",
+        access: "Ainult teadusekspeditsioonidega. Helikopteriga.",
+        significance: "Elusad stromatoliidid – haruldane nähtus. Varajase Maa ja Marsi analoogkeskkond.",
+        googleMapsUrl: "https://www.google.com/maps?q=-71.35,13.45",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Untersee",
+        imageUrl: unterseeImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Bonney järv",
+        country: "Antarktika (Taylor Valley)",
+        lat: -77.72, lng: 162.44,
+        area: "4.8 km²",
+        maxDepth: "40 m",
+        elevation: "57 m",
+        waterQuality: "Jääkatte all. Süvavee kihid on ülisoolased ja hapnikuvabad.",
+        fauna: "Mikroobid, vetikad. Unikaalsed anoksilised ökosüsteemid.",
+        flora: "Tsüanobakterid, vetikad.",
+        temperature: "Vee temp. 0–6°C (süvaveekihid soojemad päikese soojuse akumuleerumise tõttu)",
+        access: "Teadusekspeditsioonidega. McMurdo jaama kaudu.",
+        significance: "McMurdo kuivorgude tähtsaim järv. Keemiliselt kihiline (meromiktiline). Marsi analoog.",
+        googleMapsUrl: "https://www.google.com/maps?q=-77.72,162.44",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Bonney_(Antarctica)",
+        imageUrl: bonneyImg,
+        imageCredit: "AI generated"
+      },
+      {
+        name: "Whillans järv",
+        country: "Antarktika (Lääne-Antarktika)",
+        lat: -84.24, lng: -164.47,
+        area: "~60 km²",
+        maxDepth: "~2 m",
+        elevation: "Jää all (~800 m jää all)",
+        waterQuality: "Isoleeritud, puhas. Mikroobne elu avastatud 2013. aastal.",
+        fauna: "Elusad mikroobid (avastatud WISSARD projektiga 2013). Autotroofid ja heterotroofid.",
+        flora: "Puudub (pimedus).",
+        temperature: "~-0.5°C",
+        access: "Ainult teadusekspeditsioonidega. Kuumavee puurimisega jää läbi.",
+        significance: "Esimene jää-alune järv, kus kinnitati elus mikroobide olemasolu (2013). Astrobioloogiline tähtsus.",
+        googleMapsUrl: "https://www.google.com/maps?q=-84.24,-164.47",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Lake_Whillans",
+        imageUrl: whillansImg,
+        imageCredit: "AI generated"
+      }
+    ]
+  }
+];
