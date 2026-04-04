@@ -41,7 +41,7 @@ import unterseeImg from "@/assets/lakes/untersee.jpg";
 import bonneyImg from "@/assets/lakes/bonney.jpg";
 import whillansImg from "@/assets/lakes/whillans.jpg";
 
-const estoniaLakePlaceholder = "/placeholder.svg";
+const estoniaLakePlaceholder = victoriaImg;
 
 export interface Lake {
   name: string;

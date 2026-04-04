@@ -5,14 +5,24 @@ import AncientLakesSection from "@/components/AncientLakesSection";
 import SiteFooter from "@/components/SiteFooter";
 import { continents } from "@/data/lakes";
 
+const regularContinents = continents.filter((continent) => continent.name !== "Estonia");
+const estoniaSection = continents.find((continent) => continent.name === "Estonia");
+
 const Index = () => (
   <div className="min-h-screen">
     <HeroSection />
     <WorldMap />
-    {continents.map((continent, index) => (
+    {regularContinents.map((continent, index) => (
       <ContinentSection key={continent.name} continent={continent} index={index} />
     ))}
     <AncientLakesSection />
+    {estoniaSection ? (
+      <ContinentSection
+        key={estoniaSection.name}
+        continent={estoniaSection}
+        index={regularContinents.length}
+      />
+    ) : null}
     <SiteFooter />
   </div>
 );
