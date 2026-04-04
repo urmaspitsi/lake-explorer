@@ -34,7 +34,7 @@ const HeroSection = () => {
             <span className="italic text-lake-light">Järved</span>
           </h1>
           <p className="text-lake-surface/80 font-body text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-            Avasta {totalLakes} märkimisväärset järve kuuelt kontinendilt – nende sügavused,
+            Avasta {totalLakes} märkimisväärset järve kogu maailmast ja Eestist – nende sügavused,
             ökosüsteemid ja saladused.
           </p>
         </motion.div>
