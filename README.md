@@ -60,7 +60,7 @@ npm install
 npm run dev
 ```
 
-The local dev server runs on `http://localhost:8080`.
+The local dev server runs on `http://localhost:5173`.
 
 ## Local Production Preview
 
