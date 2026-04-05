@@ -74,6 +74,13 @@ const HeroSection = () => {
           >
             🏛️ Ürgjärved
           </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection("salt-water-lakes")}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+          >
+            🧂 Soolajärved
+          </button>
           {estoniaSection ? (
             <button
               type="button"

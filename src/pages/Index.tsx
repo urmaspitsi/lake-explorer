@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import WorldMap from "@/components/WorldMap";
 import ContinentSection from "@/components/ContinentSection";
 import AncientLakesSection from "@/components/AncientLakesSection";
+import SaltWaterLakesSection from "@/components/SaltWaterLakesSection";
 import SiteFooter from "@/components/SiteFooter";
 import { continents } from "@/data/lakes";
 
@@ -16,6 +17,7 @@ const Index = () => (
       <ContinentSection key={continent.name} continent={continent} index={index} />
     ))}
     <AncientLakesSection />
+    <SaltWaterLakesSection />
     {estoniaSection ? (
       <ContinentSection
         key={estoniaSection.name}
