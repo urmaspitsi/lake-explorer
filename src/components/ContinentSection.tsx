@@ -9,6 +9,15 @@ interface ContinentSectionProps {
 
 const ContinentSection = ({ continent, index }: ContinentSectionProps) => {
   const isEven = index % 2 === 0;
+  const scrollToHero = () => {
+    const hero = document.getElementById("hero");
+
+    if (!hero) {
+      return;
+    }
+
+    hero.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <section id={continent.name.toLowerCase().replace(/\s/g, "-")} className={`py-16 md:py-24 ${isEven ? "bg-background" : "bg-muted/40"}`}>
@@ -34,6 +43,16 @@ const ContinentSection = ({ continent, index }: ContinentSectionProps) => {
           {continent.lakes.map((lake, lakeIndex) => (
             <LakeCard key={lake.name} lake={lake} index={lakeIndex} />
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={scrollToHero}
+            className="inline-flex items-center gap-2 rounded-full border border-lake-mid/30 bg-lake-mid/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-lake-mid/20"
+          >
+            ↑ Tagasi üles
+          </button>
         </div>
       </div>
     </section>

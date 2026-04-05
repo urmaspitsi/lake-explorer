@@ -4,6 +4,16 @@ import { MapPin, Mountain, Waves, Clock, ExternalLink, ChevronDown, BookOpen, Dn
 import { ancientLakes, ancientLakesDefinition } from "@/data/ancientLakes";
 
 const AncientLakesSection = () => {
+  const scrollToHero = () => {
+    const hero = document.getElementById("hero");
+
+    if (!hero) {
+      return;
+    }
+
+    hero.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section id="urgjarved" className="py-16 md:py-24 bg-gradient-to-b from-muted/40 to-background">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -82,6 +92,16 @@ const AncientLakesSection = () => {
           {ancientLakes.map((lake, index) => (
             <AncientLakeCard key={lake.name} lake={lake} index={index} />
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={scrollToHero}
+            className="inline-flex items-center gap-2 rounded-full border border-lake-mid/30 bg-lake-mid/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-lake-mid/20"
+          >
+            ↑ Tagasi üles
+          </button>
         </div>
       </div>
     </section>

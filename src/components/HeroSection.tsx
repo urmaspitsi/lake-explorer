@@ -18,7 +18,7 @@ const HeroSection = () => {
   };
 
   return (
-    <header className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+    <header id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
       {/* Animated water layers */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-lake-deep/40 to-transparent" />
