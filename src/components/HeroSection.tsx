@@ -4,9 +4,6 @@ import { continents } from "@/data/lakes";
 
 const regularContinents = continents.filter((continent) => continent.name !== "Estonia");
 const estoniaSection = continents.find((continent) => continent.name === "Estonia");
-const heroSections = estoniaSection
-  ? [...regularContinents, estoniaSection]
-  : regularContinents;
 
 const HeroSection = () => {
   const totalLakes = continents.reduce((sum, c) => sum + c.lakes.length, 0);
@@ -60,7 +57,7 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
-          {heroSections.map((c) => (
+          {regularContinents.map((c) => (
             <button
               key={c.name}
               type="button"
@@ -77,6 +74,15 @@ const HeroSection = () => {
           >
             🏛️ Ürgjärved
           </button>
+          {estoniaSection ? (
+            <button
+              type="button"
+              onClick={() => scrollToSection(estoniaSection.name.toLowerCase().replace(/\s/g, "-"))}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+            >
+              {estoniaSection.emoji} {estoniaSection.nameEt}
+            </button>
+          ) : null}
         </motion.div>
 
         <motion.div
