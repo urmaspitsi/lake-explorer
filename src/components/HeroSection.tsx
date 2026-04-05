@@ -2,8 +2,23 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { continents } from "@/data/lakes";
 
+const regularContinents = continents.filter((continent) => continent.name !== "Estonia");
+const estoniaSection = continents.find((continent) => continent.name === "Estonia");
+const heroSections = estoniaSection
+  ? [...regularContinents, estoniaSection]
+  : regularContinents;
+
 const HeroSection = () => {
   const totalLakes = continents.reduce((sum, c) => sum + c.lakes.length, 0);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <header className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
@@ -45,24 +60,36 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
-          {continents.map((c) => (
-            <a
+          {heroSections.map((c) => (
+            <button
               key={c.name}
-              href={`#${c.name.toLowerCase().replace(/\s/g, "-")}`}
+              type="button"
+              onClick={() => scrollToSection(c.name.toLowerCase().replace(/\s/g, "-"))}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
             >
               {c.emoji} {c.nameEt}
-            </a>
+            </button>
           ))}
+          <button
+            type="button"
+            onClick={() => scrollToSection("urgjarved")}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+          >
+            🏛️ Ürgjärved
+          </button>
         </motion.div>
 
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <a href="#africa" className="inline-block">
+          <button
+            type="button"
+            onClick={() => scrollToSection("africa")}
+            className="inline-block"
+          >
             <ChevronDown className="w-8 h-8 text-lake-light/60" />
-          </a>
+          </button>
         </motion.div>
       </div>
     </header>
