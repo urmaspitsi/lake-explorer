@@ -16,6 +16,7 @@ const CONTINENT_COLORS: Record<string, string> = {
   Asia: "hsl(0 70% 55%)",
   Europe: "hsl(210 70% 50%)",
   Estonia: "hsl(210 80% 60%)",
+  Tuva: "hsl(18 80% 52%)",
   "North America": "hsl(150 50% 45%)",
   "South America": "hsl(45 80% 50%)",
   Oceania: "hsl(280 50% 55%)",

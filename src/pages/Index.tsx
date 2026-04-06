@@ -6,8 +6,13 @@ import SaltWaterLakesSection from "@/components/SaltWaterLakesSection";
 import SiteFooter from "@/components/SiteFooter";
 import { continents } from "@/data/lakes";
 
-const regularContinents = continents.filter((continent) => continent.name !== "Estonia");
-const estoniaSection = continents.find((continent) => continent.name === "Estonia");
+const trailingSectionNames = ["Estonia", "Tuva"];
+const regularContinents = continents.filter(
+  (continent) => !trailingSectionNames.includes(continent.name),
+);
+const trailingSections = trailingSectionNames
+  .map((name) => continents.find((continent) => continent.name === name))
+  .filter((continent): continent is (typeof continents)[number] => Boolean(continent));
 
 const Index = () => (
   <div className="min-h-screen">
@@ -18,13 +23,13 @@ const Index = () => (
     ))}
     <AncientLakesSection />
     <SaltWaterLakesSection />
-    {estoniaSection ? (
+    {trailingSections.map((continent, index) => (
       <ContinentSection
-        key={estoniaSection.name}
-        continent={estoniaSection}
-        index={regularContinents.length}
+        key={continent.name}
+        continent={continent}
+        index={regularContinents.length + index}
       />
-    ) : null}
+    ))}
     <SiteFooter />
   </div>
 );

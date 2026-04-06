@@ -2,8 +2,13 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { continents } from "@/data/lakes";
 
-const regularContinents = continents.filter((continent) => continent.name !== "Estonia");
-const estoniaSection = continents.find((continent) => continent.name === "Estonia");
+const trailingSectionNames = ["Estonia", "Tuva"];
+const regularContinents = continents.filter(
+  (continent) => !trailingSectionNames.includes(continent.name),
+);
+const trailingSections = trailingSectionNames
+  .map((name) => continents.find((continent) => continent.name === name))
+  .filter((continent): continent is (typeof continents)[number] => Boolean(continent));
 
 const HeroSection = () => {
   const totalLakes = continents.reduce((sum, c) => sum + c.lakes.length, 0);
@@ -81,15 +86,16 @@ const HeroSection = () => {
           >
             🧂 Soolajärved
           </button>
-          {estoniaSection ? (
+          {trailingSections.map((continent) => (
             <button
+              key={continent.name}
               type="button"
-              onClick={() => scrollToSection(estoniaSection.name.toLowerCase().replace(/\s/g, "-"))}
+              onClick={() => scrollToSection(continent.name.toLowerCase().replace(/\s/g, "-"))}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
             >
-              {estoniaSection.emoji} {estoniaSection.nameEt}
+              {continent.emoji} {continent.nameEt}
             </button>
-          ) : null}
+          ))}
         </motion.div>
 
         <motion.div
