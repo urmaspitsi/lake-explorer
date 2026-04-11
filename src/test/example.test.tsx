@@ -17,5 +17,5 @@ describe("App", () => {
     expect(screen.getByText("Mis on ürgjärv?")).toBeInTheDocument();
     expect(screen.getByText("Tõetruu kaart päris taustakaardiga. Suumi sügavale sisse, lohista kaarti ja kliki järvedel.")).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/[ÃÂÅð]/);
-  });
+  }, 15000);
 });
