@@ -284,7 +284,7 @@ const WorldMap = () => {
               <button
                 type="button"
                 onClick={() => setFixedCenterZoom(zoom + 1)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-sm backdrop-blur hover:bg-card"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-xs backdrop-blur-sm hover:bg-card"
                 aria-label="Suurenda"
               >
                 <Plus className="h-4 w-4" />
@@ -292,18 +292,18 @@ const WorldMap = () => {
               <button
                 type="button"
                 onClick={() => setFixedCenterZoom(zoom - 1)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-sm backdrop-blur hover:bg-card"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-xs backdrop-blur-sm hover:bg-card"
                 aria-label="Vähenda"
               >
                 <Minus className="h-4 w-4" />
               </button>
             </div>
 
-            <div className="absolute left-3 top-3 z-30 rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur">
+            <div className="absolute left-3 top-3 z-30 rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-xs backdrop-blur-sm">
               Suum {zoom.toFixed(2)}x
             </div>
 
-            <div className="absolute bottom-2 right-2 z-30 rounded-md bg-card/90 px-2 py-1 text-[10px] text-muted-foreground shadow-sm backdrop-blur">
+            <div className="absolute bottom-2 right-2 z-30 rounded-md bg-card/90 px-2 py-1 text-[10px] text-muted-foreground shadow-xs backdrop-blur-sm">
               Map tiles © OpenStreetMap contributors, CARTO
             </div>
 

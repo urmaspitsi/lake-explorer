@@ -140,7 +140,7 @@ const AncientLakeCard = ({ lake, index }: AncientLakeCardProps) => {
             {lake.country}
           </p>
         </div>
-        <span className="absolute top-2 right-2 text-[10px] text-primary-foreground/80 bg-foreground/40 px-2 py-0.5 rounded-full font-medium backdrop-blur-sm">
+                  <span className="absolute top-2 right-2 text-[10px] text-primary-foreground/80 bg-foreground/40 px-2 py-0.5 rounded-full font-medium backdrop-blur-xs">
           <Clock className="w-3 h-3 inline mr-1" />
           {lake.age}
         </span>

@@ -99,7 +99,7 @@ const SaltWaterLakeCard = ({ lake, index }: SaltWaterLakeCardProps) => {
       className="group rounded-xl overflow-hidden bg-card shadow-card hover:shadow-card-hover transition-shadow duration-500 border border-border"
     >
       <div className="relative overflow-hidden border-b border-border bg-[radial-gradient(circle_at_top_left,hsl(var(--lake-light)/0.35),transparent_45%),linear-gradient(135deg,hsl(var(--lake-deep))_0%,hsl(var(--lake-mid))_100%)] px-5 py-6">
-        <div className="absolute right-3 top-3 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-primary-foreground/85 backdrop-blur-sm">
+              <div className="absolute right-3 top-3 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-primary-foreground/85 backdrop-blur-xs">
           {lake.continent}
         </div>
         <div className="max-w-[85%]">

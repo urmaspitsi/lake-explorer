@@ -67,7 +67,7 @@ const HeroSection = () => {
               key={c.name}
               type="button"
               onClick={() => scrollToSection(c.name.toLowerCase().replace(/\s/g, "-"))}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-xs transition-colors border border-primary-foreground/10"
             >
               {c.emoji} {c.nameEt}
             </button>
@@ -75,14 +75,14 @@ const HeroSection = () => {
           <button
             type="button"
             onClick={() => scrollToSection("urgjarved")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-xs transition-colors border border-primary-foreground/10"
           >
             🏛️ Ürgjärved
           </button>
           <button
             type="button"
             onClick={() => scrollToSection("salt-water-lakes")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-xs transition-colors border border-primary-foreground/10"
           >
             🧂 Soolajärved
           </button>
@@ -91,7 +91,7 @@ const HeroSection = () => {
               key={continent.name}
               type="button"
               onClick={() => scrollToSection(continent.name.toLowerCase().replace(/\s/g, "-"))}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-sm transition-colors border border-primary-foreground/10"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-primary-foreground/10 text-primary-foreground/90 hover:bg-primary-foreground/20 backdrop-blur-xs transition-colors border border-primary-foreground/10"
             >
               {continent.emoji} {continent.nameEt}
             </button>
