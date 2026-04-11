@@ -1,4 +1,4 @@
-import baikalImg from "@/assets/lakes/baikal.jpg";
+﻿import baikalImg from "@/assets/lakes/baikal.jpg";
 import tanganyikaImg from "@/assets/lakes/tanganyika.jpg";
 import malawiImg from "@/assets/lakes/malawi.jpg";
 import ohridImg from "@/assets/lakes/ohrid.jpg";

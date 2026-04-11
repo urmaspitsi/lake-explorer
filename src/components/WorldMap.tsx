@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, MapPin, Minus, Plus, X } from "lucide-react";
+import { ExternalLink, Map, MapPin, Minus, Plus, X } from "lucide-react";
 import { continents } from "@/data/lakes";
 import type { Lake } from "@/data/lakes";
 import BackToTopButton from "./BackToTopButton";
@@ -194,12 +194,12 @@ const WorldMap = () => {
             <div className="mb-6 flex justify-start">
               <BackToTopButton />
             </div>
-            <span className="mb-3 block text-4xl">ðŸ—ºï¸</span>
+            <Map className="mx-auto mb-3 h-10 w-10 text-foreground" aria-hidden="true" />
             <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
               Interaktiivne kaart
             </h2>
             <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              TÃµetruu kaart pÃ¤ris taustakaardiga. Suumi sÃ¼gavale sisse, lohista kaarti ja kliki jÃ¤rvedel.
+              Tõetruu kaart päris taustakaardiga. Suumi sügavale sisse, lohista kaarti ja kliki järvedel.
             </p>
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-lake-mid" />
           </div>
@@ -297,7 +297,7 @@ const WorldMap = () => {
                 type="button"
                 onClick={() => setFixedCenterZoom(zoom - 1)}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-xs backdrop-blur-sm hover:bg-card"
-                aria-label="VÃ¤henda"
+                aria-label="Vähenda"
               >
                 <Minus className="h-4 w-4" />
               </button>
@@ -308,7 +308,7 @@ const WorldMap = () => {
             </div>
 
             <div className="absolute bottom-2 right-2 z-30 rounded-md bg-card/90 px-2 py-1 text-[10px] text-muted-foreground shadow-xs backdrop-blur-sm">
-              Map tiles Â© OpenStreetMap contributors, CARTO
+              Map tiles © OpenStreetMap contributors, CARTO
             </div>
 
             <div className="absolute inset-0">
@@ -398,7 +398,7 @@ const WorldMap = () => {
                       </p>
                       <div className="mt-1.5 flex gap-3 text-xs text-muted-foreground">
                         <span>{selectedLake.area}</span>
-                        <span>â†• {selectedLake.maxDepth}</span>
+                        <span>↕ {selectedLake.maxDepth}</span>
                       </div>
                     </div>
                   </div>
@@ -423,7 +423,7 @@ const WorldMap = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                     >
-                      ðŸ“– Wikipedia
+                      Wikipedia
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   </div>

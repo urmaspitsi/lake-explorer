@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, ChevronDown, Clock, Dna, ExternalLink, Globe, MapPin, Mountain, Waves } from "lucide-react";
+import { BookOpen, ChevronDown, Clock, Dna, ExternalLink, Globe, Landmark, MapPin, Mountain, Waves } from "lucide-react";
 import { ancientLakes, ancientLakesDefinition } from "@/data/ancientLakes";
 import BackToTopButton from "./BackToTopButton";
 
@@ -19,7 +19,7 @@ const AncientLakesSection = () => {
             <div className="mb-6 flex justify-start">
               <BackToTopButton />
             </div>
-            <span className="mb-3 block text-4xl">ðŸ›ï¸</span>
+            <Landmark className="mx-auto mb-3 h-10 w-10 text-foreground" aria-hidden="true" />
             <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
               {ancientLakesDefinition.title}
             </h2>
@@ -41,7 +41,7 @@ const AncientLakesSection = () => {
             <div className="mb-4 flex items-start gap-3">
               <BookOpen className="mt-0.5 h-6 w-6 shrink-0 text-lake-mid" />
               <div>
-                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Mis on Ã¼rgjÃ¤rv?</h3>
+                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Mis on {"\u00FCrgj\u00E4rv"}?</h3>
                 <p className="leading-relaxed text-foreground/80">{ancientLakesDefinition.definition}</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ const AncientLakesSection = () => {
             <div className="mb-4 flex items-start gap-3">
               <Globe className="mt-0.5 h-6 w-6 shrink-0 text-lake-mid" />
               <div>
-                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Miks on Ã¼rgjÃ¤rved olulised?</h3>
+                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Miks on {"\u00FCrgj\u00E4rved"} olulised?</h3>
                 <p className="leading-relaxed text-foreground/80">{ancientLakesDefinition.importance}</p>
               </div>
             </div>
@@ -135,12 +135,12 @@ const AncientLakeCard = ({ lake, index }: AncientLakeCardProps) => {
         </div>
         <div className="text-center">
           <Mountain className="mx-auto mb-1 h-4 w-4 text-lake-mid" />
-          <p className="text-xs text-muted-foreground">SÃ¼gavus</p>
+          <p className="text-xs text-muted-foreground">Sügavus</p>
           <p className="text-sm font-semibold text-foreground">{lake.maxDepth}</p>
         </div>
         <div className="text-center">
           <Globe className="mx-auto mb-1 h-4 w-4 text-lake-mid" />
-          <p className="text-xs text-muted-foreground">KÃµrgus</p>
+          <p className="text-xs text-muted-foreground">Kõrgus</p>
           <p className="text-sm font-semibold text-foreground">{lake.elevation}</p>
         </div>
       </div>
@@ -172,7 +172,7 @@ const AncientLakeCard = ({ lake, index }: AncientLakeCardProps) => {
             <div className="space-y-4 px-4 pb-5">
               <div>
                 <p className="mb-1 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  <Clock className="h-3.5 w-3.5" /> LÃ¼hiajalugu
+                  <Clock className="h-3.5 w-3.5" /> Lühiajalugu
                 </p>
                 <p className="text-sm leading-relaxed text-foreground">{lake.history}</p>
               </div>
@@ -199,7 +199,7 @@ const AncientLakeCard = ({ lake, index }: AncientLakeCardProps) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                 >
-                  ðŸ“– Wikipedia
+                  Wikipedia
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </div>

@@ -1,4 +1,4 @@
-export interface SaltWaterLake {
+﻿export interface SaltWaterLake {
   name: string;
   nameEt: string;
   country: string;

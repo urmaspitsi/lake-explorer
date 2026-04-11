@@ -19,7 +19,7 @@ const SaltWaterLakesSection = () => {
             <div className="mb-6 flex justify-start">
               <BackToTopButton />
             </div>
-            <span className="mb-3 block text-4xl">ðŸ§‚</span>
+            <Droplets className="mx-auto mb-3 h-10 w-10 text-foreground" aria-hidden="true" />
             <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
               {saltWaterLakesDefinition.title}
             </h2>
@@ -41,7 +41,7 @@ const SaltWaterLakesSection = () => {
             <div className="mb-4 flex items-start gap-3">
               <BookOpen className="mt-0.5 h-6 w-6 shrink-0 text-lake-mid" />
               <div>
-                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Mis on soolajÃ¤rv?</h3>
+                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Mis on soolajärv?</h3>
                 <p className="leading-relaxed text-foreground/80">{saltWaterLakesDefinition.definition}</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ const SaltWaterLakesSection = () => {
             <div className="mb-4 flex items-start gap-3">
               <Globe className="mt-0.5 h-6 w-6 shrink-0 text-lake-mid" />
               <div>
-                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Miks need jÃ¤rved huvitavad on?</h3>
+                <h3 className="mb-2 font-display text-xl font-bold text-foreground">Miks need järved huvitavad on?</h3>
                 <p className="leading-relaxed text-foreground/80">{saltWaterLakesDefinition.importance}</p>
               </div>
             </div>
@@ -110,7 +110,7 @@ const SaltWaterLakeCard = ({ lake, index }: SaltWaterLakeCardProps) => {
         </div>
         <div className="text-center">
           <Mountain className="mx-auto mb-1 h-4 w-4 text-lake-mid" />
-          <p className="text-xs text-muted-foreground">SÃ¼gavus</p>
+          <p className="text-xs text-muted-foreground">Sügavus</p>
           <p className="text-sm font-semibold text-foreground">{lake.maxDepth}</p>
         </div>
       </div>
@@ -145,11 +145,11 @@ const SaltWaterLakeCard = ({ lake, index }: SaltWaterLakeCardProps) => {
                 <p className="text-sm leading-relaxed text-foreground">{lake.chemistry}</p>
               </div>
               <div>
-                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Ã–koloogia</p>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Ökoloogia</p>
                 <p className="text-sm leading-relaxed text-foreground">{lake.ecology}</p>
               </div>
               <div>
-                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">KÃµrgus</p>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Kõrgus</p>
                 <p className="text-sm leading-relaxed text-foreground">{lake.elevation}</p>
               </div>
 
