@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ExternalLink, X, Minus, Plus } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExternalLink, MapPin, Minus, Plus, X } from "lucide-react";
 import { continents } from "@/data/lakes";
 import type { Lake } from "@/data/lakes";
+import BackToTopButton from "./BackToTopButton";
 
 const TILE_SIZE = 256;
 const MIN_ZOOM = 2;
@@ -36,9 +37,7 @@ const lngToWorldX = (lng: number, zoom: number) => {
 const latToWorldY = (lat: number, zoom: number) => {
   const scale = TILE_SIZE * 2 ** zoom;
   const sinLat = Math.sin((lat * Math.PI) / 180);
-  const y =
-    0.5 -
-    Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI);
+  const y = 0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI);
 
   return clamp(y * scale, 0, scale);
 };
@@ -51,7 +50,7 @@ const worldXToLng = (worldX: number, zoom: number) => {
 const worldYToLat = (worldY: number, zoom: number) => {
   const scale = TILE_SIZE * 2 ** zoom;
   const y = 0.5 - worldY / scale;
-  return (90 - (360 * Math.atan(Math.exp(-y * 2 * Math.PI))) / Math.PI);
+  return 90 - (360 * Math.atan(Math.exp(-y * 2 * Math.PI))) / Math.PI;
 };
 
 const getTileUrl = (x: number, y: number, zoom: number) =>
@@ -73,8 +72,8 @@ const WorldMap = () => {
   } | null>(null);
 
   const allLakes = useMemo(() => {
-    return continents.flatMap((c) =>
-      c.lakes.map((lake) => ({ ...lake, continent: c.name }))
+    return continents.flatMap((continent) =>
+      continent.lakes.map((lake) => ({ ...lake, continent: continent.name })),
     );
   }, []);
 
@@ -183,40 +182,45 @@ const WorldMap = () => {
   const labelOffsetY = markerRadius + 3;
 
   return (
-    <section className="py-16 md:py-24 bg-muted/40">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="bg-muted/40 py-16 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="mb-10"
         >
-          <span className="text-4xl mb-3 block">🗺️</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Interaktiivne kaart
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Tõetruu kaart päris taustakaardiga. Suumi sügavale sisse, lohista kaarti ja kliki järvedel.
-          </p>
-          <div className="mt-4 h-1 w-16 mx-auto rounded-full bg-lake-mid" />
+          <div className="text-center">
+            <div className="mb-6 flex justify-start">
+              <BackToTopButton />
+            </div>
+            <span className="mb-3 block text-4xl">ðŸ—ºï¸</span>
+            <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
+              Interaktiivne kaart
+            </h2>
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              TÃµetruu kaart pÃ¤ris taustakaardiga. Suumi sÃ¼gavale sisse, lohista kaarti ja kliki jÃ¤rvedel.
+            </p>
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-lake-mid" />
+          </div>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {continents.map((c) => (
-            <div key={c.name} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+        <div className="mb-6 flex flex-wrap justify-center gap-3">
+          {continents.map((continent) => (
+            <div key={continent.name} className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <span
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: CONTINENT_COLORS[c.name] }}
+                className="h-3 w-3 rounded-full"
+                style={{ backgroundColor: CONTINENT_COLORS[continent.name] }}
               />
-              {c.nameEt}
+              {continent.nameEt}
             </div>
           ))}
         </div>
 
-        <div className="relative rounded-xl overflow-hidden bg-card shadow-card border border-border">
+        <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-card">
           <div
             ref={mapRef}
-            className="relative w-full overflow-hidden bg-[#dbeafe] touch-none select-none"
+            className="relative w-full touch-none select-none overflow-hidden bg-[#dbeafe]"
             style={{ aspectRatio: "2 / 1", cursor: isDragging ? "grabbing" : "grab" }}
             onPointerDown={(event) => {
               event.preventDefault();
@@ -293,7 +297,7 @@ const WorldMap = () => {
                 type="button"
                 onClick={() => setFixedCenterZoom(zoom - 1)}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-xs backdrop-blur-sm hover:bg-card"
-                aria-label="Vähenda"
+                aria-label="VÃ¤henda"
               >
                 <Minus className="h-4 w-4" />
               </button>
@@ -304,7 +308,7 @@ const WorldMap = () => {
             </div>
 
             <div className="absolute bottom-2 right-2 z-30 rounded-md bg-card/90 px-2 py-1 text-[10px] text-muted-foreground shadow-xs backdrop-blur-sm">
-              Map tiles © OpenStreetMap contributors, CARTO
+              Map tiles Â© OpenStreetMap contributors, CARTO
             </div>
 
             <div className="absolute inset-0">
@@ -368,59 +372,59 @@ const WorldMap = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  className="absolute bottom-4 left-4 right-4 z-40 bg-card/95 backdrop-blur-md rounded-xl shadow-lg border border-border p-4 md:left-auto md:right-4 md:w-96"
+                  className="absolute bottom-4 left-4 right-4 z-40 rounded-xl border border-border bg-card/95 p-4 shadow-lg backdrop-blur-md md:left-auto md:right-4 md:w-96"
                 >
                   <button
                     type="button"
                     onClick={() => setSelectedLake(null)}
-                    className="absolute top-2 right-2 p-1 rounded-full hover:bg-muted transition-colors"
+                    className="absolute right-2 top-2 rounded-full p-1 transition-colors hover:bg-muted"
                   >
-                    <X className="w-4 h-4 text-muted-foreground" />
+                    <X className="h-4 w-4 text-muted-foreground" />
                   </button>
 
                   <div className="flex gap-3">
                     <img
                       src={selectedLake.imageUrl}
                       alt={selectedLake.name}
-                      className="w-20 h-20 rounded-lg object-cover shrink-0"
+                      className="h-20 w-20 shrink-0 rounded-lg object-cover"
                     />
                     <div className="min-w-0">
-                      <h3 className="font-display font-bold text-foreground text-lg leading-tight">
+                      <h3 className="font-display text-lg font-bold leading-tight text-foreground">
                         {selectedLake.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1 mt-0.5">
-                        <MapPin className="w-3 h-3" />
+                      <p className="mt-0.5 flex items-center gap-1 text-sm text-muted-foreground">
+                        <MapPin className="h-3 w-3" />
                         {selectedLake.country}
                       </p>
-                      <div className="flex gap-3 mt-1.5 text-xs text-muted-foreground">
+                      <div className="mt-1.5 flex gap-3 text-xs text-muted-foreground">
                         <span>{selectedLake.area}</span>
-                        <span>↕ {selectedLake.maxDepth}</span>
+                        <span>â†• {selectedLake.maxDepth}</span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-sm text-foreground mt-3 leading-relaxed line-clamp-2">
+                  <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-foreground">
                     {selectedLake.significance}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="mt-3 flex flex-wrap gap-2">
                     <a
                       href={selectedLake.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                     >
-                      <MapPin className="w-3 h-3" /> Google Maps
-                      <ExternalLink className="w-3 h-3" />
+                      <MapPin className="h-3 w-3" /> Google Maps
+                      <ExternalLink className="h-3 w-3" />
                     </a>
                     <a
                       href={selectedLake.wikipediaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
                     >
-                      📖 Wikipedia
-                      <ExternalLink className="w-3 h-3" />
+                      ðŸ“– Wikipedia
+                      <ExternalLink className="h-3 w-3" />
                     </a>
                   </div>
                 </motion.div>

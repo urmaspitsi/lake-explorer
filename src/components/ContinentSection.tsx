@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Continent } from "@/data/lakes";
+import BackToTopButton from "./BackToTopButton";
 import LakeCard from "./LakeCard";
 
 interface ContinentSectionProps {
@@ -9,15 +10,6 @@ interface ContinentSectionProps {
 
 const ContinentSection = ({ continent, index }: ContinentSectionProps) => {
   const isEven = index % 2 === 0;
-  const scrollToHero = () => {
-    const hero = document.getElementById("hero");
-
-    if (!hero) {
-      return;
-    }
-
-    hero.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <section id={continent.name.toLowerCase().replace(/\s/g, "-")} className={`py-16 md:py-24 ${isEven ? "bg-background" : "bg-muted/40"}`}>
@@ -27,32 +19,27 @@ const ContinentSection = ({ continent, index }: ContinentSectionProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-12"
         >
-          <span className="text-4xl mb-3 block">{continent.emoji}</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            {continent.nameEt}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            {continent.description}
-          </p>
-          <div className="mt-4 h-1 w-16 mx-auto rounded-full bg-lake-mid" />
+          <div className="text-center">
+            <div className="mb-6 flex justify-start">
+              <BackToTopButton />
+            </div>
+            <span className="mb-3 block text-4xl">{continent.emoji}</span>
+            <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
+              {continent.nameEt}
+            </h2>
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              {continent.description}
+            </p>
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-lake-mid" />
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {continent.lakes.map((lake, lakeIndex) => (
             <LakeCard key={lake.name} lake={lake} index={lakeIndex} />
           ))}
-        </div>
-
-        <div className="mt-10 flex justify-center">
-          <button
-            type="button"
-            onClick={scrollToHero}
-            className="inline-flex items-center gap-2 rounded-full border border-lake-mid/30 bg-lake-mid/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-lake-mid/20"
-          >
-            ↑ Tagasi üles
-          </button>
         </div>
       </div>
     </section>
