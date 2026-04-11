@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, ExternalLink, X, Minus, Plus } from "lucide-react";
 import { continents } from "@/data/lakes";
@@ -77,6 +77,13 @@ const WorldMap = () => {
     );
   }, []);
 
+  const setFixedCenterZoom = useCallback((nextZoom: number) => {
+    setZoom((currentZoom) => {
+      const targetZoom = clamp(Math.round(nextZoom * 100) / 100, MIN_ZOOM, MAX_ZOOM);
+      return targetZoom === currentZoom ? currentZoom : targetZoom;
+    });
+  }, []);
+
   useEffect(() => {
     const element = mapRef.current;
 
@@ -114,7 +121,7 @@ const WorldMap = () => {
     return () => {
       element.removeEventListener("wheel", handleWheel);
     };
-  }, [zoom, center]);
+  }, [setFixedCenterZoom, zoom]);
 
   const centerWorldX = lngToWorldX(center.lng, zoom);
   const centerWorldY = latToWorldY(center.lat, zoom);
@@ -173,16 +180,6 @@ const WorldMap = () => {
   const markerRadius = clamp(7.5 - (zoom - 2) * 0.45, 4, 7.5);
   const labelFontSize = clamp(10 + (zoom - 2) * 0.55, 10, 14.5);
   const labelOffsetY = markerRadius + 3;
-
-  const setFixedCenterZoom = (nextZoom: number) => {
-    const targetZoom = clamp(Math.round(nextZoom * 100) / 100, MIN_ZOOM, MAX_ZOOM);
-
-    if (targetZoom === zoom) {
-      return;
-    }
-
-    setZoom(targetZoom);
-  };
 
   return (
     <section className="py-16 md:py-24 bg-muted/40">
