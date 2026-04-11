@@ -62,6 +62,7 @@ const WorldMap = () => {
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
   const [center, setCenter] = useState(INITIAL_CENTER);
   const [viewport, setViewport] = useState({ width: 1200, height: 600 });
+  const [isDragging, setIsDragging] = useState(false);
   const mapRef = useRef<HTMLDivElement | null>(null);
   const dragStateRef = useRef<{
     pointerId: number;
@@ -216,7 +217,7 @@ const WorldMap = () => {
           <div
             ref={mapRef}
             className="relative w-full overflow-hidden bg-[#dbeafe] touch-none select-none"
-            style={{ aspectRatio: "2 / 1", cursor: dragStateRef.current ? "grabbing" : "grab" }}
+            style={{ aspectRatio: "2 / 1", cursor: isDragging ? "grabbing" : "grab" }}
             onPointerDown={(event) => {
               event.preventDefault();
               const element = mapRef.current;
@@ -233,6 +234,7 @@ const WorldMap = () => {
                 startCenterWorldY: centerWorldY,
               };
 
+              setIsDragging(true);
               element.setPointerCapture(event.pointerId);
             }}
             onPointerMove={(event) => {
@@ -257,6 +259,7 @@ const WorldMap = () => {
 
               mapRef.current?.releasePointerCapture(event.pointerId);
               dragStateRef.current = null;
+              setIsDragging(false);
             }}
             onPointerLeave={(event) => {
               if (!dragStateRef.current || dragStateRef.current.pointerId !== event.pointerId) {
@@ -265,6 +268,16 @@ const WorldMap = () => {
 
               mapRef.current?.releasePointerCapture(event.pointerId);
               dragStateRef.current = null;
+              setIsDragging(false);
+            }}
+            onPointerCancel={(event) => {
+              if (!dragStateRef.current || dragStateRef.current.pointerId !== event.pointerId) {
+                return;
+              }
+
+              mapRef.current?.releasePointerCapture(event.pointerId);
+              dragStateRef.current = null;
+              setIsDragging(false);
             }}
           >
             <div className="absolute right-3 top-3 z-30 flex flex-col gap-2">
