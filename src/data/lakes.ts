@@ -40,6 +40,7 @@ import donjuanImg from "@/assets/lakes/donjuan.jpg";
 import unterseeImg from "@/assets/lakes/untersee.jpg";
 import bonneyImg from "@/assets/lakes/bonney.jpg";
 import whillansImg from "@/assets/lakes/whillans.jpg";
+import { finlandSection, norwaySection } from "@/data/nordicSections";
 import { tuvaSection } from "@/data/tuvaSection";
 
 const estoniaLakePlaceholder = victoriaImg;
@@ -1664,5 +1665,7 @@ export const continents: Continent[] = [
       }
     ]
   },
+  finlandSection,
+  norwaySection,
   tuvaSection
 ];

@@ -6,7 +6,7 @@ import SaltWaterLakesSection from "@/components/SaltWaterLakesSection";
 import SiteFooter from "@/components/SiteFooter";
 import { continents } from "@/data/lakes";
 
-const trailingSectionNames = ["Estonia", "Tuva"];
+const trailingSectionNames = ["Estonia", "Finland", "Norway", "Tuva"];
 const regularContinents = continents.filter(
   (continent) => !trailingSectionNames.includes(continent.name),
 );
